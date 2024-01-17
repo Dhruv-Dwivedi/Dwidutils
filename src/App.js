@@ -3,8 +3,8 @@ import "./App.css";
 import Navbar from "./component/Navbar";
 import Textform from "./component/Textform";
 import Alert from "./component/Alert";
-import About from "./component/About";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import About from "./component/About";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light"); //whether dark mode is enabled or not
@@ -43,26 +43,26 @@ function App() {
 
   return (
     <>
-      <Router>
-        <Navbar title="Logic Validator" mode={mode} toggleMode={toggleMode} />
-        {/* <Navbar /> */}
-        <Alert alert={alert} />
+      {/* <Router> */}
+      <Navbar title="Logic Validator" mode={mode} toggleMode={toggleMode} />
+      {/* <Navbar /> */}
+      <Alert alert={alert} />
 
-        <div className="container">
-          <Switch>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/">
-              <Textform
-                showAlert={showAlert}
-                heading="Enter your text here"
-                mode={mode}
-              />
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <div className="container">
+        {/* <Switch> */}
+        {/* <Route exact path="/about"> */}
+        {/* <About /> */}
+        {/* </Route> */}
+        {/* <Route exact path="/"> */}
+        <Textform
+          showAlert={showAlert}
+          heading="Enter your text here"
+          mode={mode}
+        />
+        {/* </Route> */}
+        {/* </Switch> */}
+      </div>
+      {/* </Router> */}
     </>
   );
 }
