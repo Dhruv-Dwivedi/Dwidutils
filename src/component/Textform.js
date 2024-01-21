@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropType from "prop-types";
 
 export default function Textform(props) {
   const handleUpClick = () => {
@@ -74,7 +75,7 @@ export default function Textform(props) {
             value={text}
             onChange={handleOnChange}
             style={{
-              backgroundColor: props.mode === "dark" ? "grey" : "white",
+              backgroundColor: props.mode === "dark" ? "#13466e" : "white",
               color: props.mode === "dark" ? "white" : "#042743",
             }}
             rows="4"
@@ -112,9 +113,20 @@ export default function Textform(props) {
       >
         <h1>Your text summary : </h1>
         <p>
-          {text.split(" ").length} words and {text.length} letters
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }{" "}
+          words and {text.length} letters
         </p>
-        <p>{0.008 * text.split(" ").length} Minutes to read</p>
+        <p>
+          {0.008 *
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length}{" "}
+          Minutes to read
+        </p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
