@@ -40,10 +40,11 @@ export default function Textform(props) {
 
   const handleCopy = () => {
     // console.log("I am copy");
-    var text = document.getElementById("myBox");
-    text.select();
-    text.setSelectionRange(0, 99999);
+    // var text = document.getElementById("myBox");
+    // text.select();
+    // text.setSelectionRange(0, 99999);
     navigator.clipboard.writeText(text.value);
+    // document.getSelection().removeAllRanges();
   };
 
   const handlefirstClick = () => {
@@ -68,7 +69,7 @@ export default function Textform(props) {
         style={{ color: props.mode === "dark" ? "white" : "black" }}
       >
         <div className="mb-3">
-          <h1>{props.heading}</h1>
+          <h1 className="my-2">{props.heading}</h1>
           <textarea
             className="form-control"
             id="myBox"
@@ -81,29 +82,54 @@ export default function Textform(props) {
             rows="4"
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-1" onClick={handleUpClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handleUpClick}
+        >
           Convert to Uppercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleLoClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handleLoClick}
+        >
           Convert to Lowercase
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleClearText}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handleClearText}
+        >
           Clear text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handleExtraSpaces}
+        >
           Remove Extra Spaces
         </button>
-        <button className="btn btn-primary mx-1" onClick={handleReverseText}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handleReverseText}
+        >
           Reverse Text
         </button>
         <button
+          disabled={text.length === 0}
           className="btn btn-primary mx-1"
           id="myBox"
           onClick={handleCopy}
         >
           Copy Text
         </button>
-        <button className="btn btn-primary mx-1" onClick={handlefirstClick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1"
+          onClick={handlefirstClick}
+        >
           First letter upper case
         </button>
       </div>
@@ -114,7 +140,7 @@ export default function Textform(props) {
         <h1>Your text summary : </h1>
         <p>
           {
-            text.split(" ").filter((element) => {
+            text.split(/\s+/).filter((element) => {
               return element.length !== 0;
             }).length
           }{" "}

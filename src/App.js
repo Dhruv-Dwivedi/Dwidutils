@@ -26,7 +26,7 @@ function App() {
       setMode("dark");
       document.body.style.backgroundColor = "#042743";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "Dwidutils - Dark mode";
+      // document.title = "Dwidutils - Dark mode";
       // setInterval(() => {
       //   document.title = "Dwidutil is amazing mode";
       // }, 2000);
@@ -37,7 +37,7 @@ function App() {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Light mode has been enabled", "success");
-      document.title = "Dwidutils - Light mode";
+      // document.title = "Dwidutils - Light mode";
     }
   };
 
@@ -55,7 +55,7 @@ function App() {
             <Route exact path="/">
               <Textform
                 showAlert={showAlert}
-                heading="Enter your text here"
+                heading="Dwidutils - Word counter, character counter, remove extra spaces"
                 mode={mode}
               />
             </Route>
